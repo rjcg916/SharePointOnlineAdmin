@@ -2,7 +2,6 @@
 using System;
 using System.Configuration;
 
-
 namespace SharePointOnlineAdmin
 {
 
@@ -28,9 +27,7 @@ namespace SharePointOnlineAdmin
             //List discussionList = web.Lists.GetByTitle(Partner.Configuration.PartnerDiscussionListName);
             //discussionList.AddPrincipalToAllFolders(aGroup);
 
-
         }
-
    
         static void Main(string[] args)
         {
@@ -38,6 +35,7 @@ namespace SharePointOnlineAdmin
             string command = args[0];
 
             string siteName;
+            string siteCollectionUrl;
             string libraryList;
             string CSVFilePath;
             string userLogonName;
@@ -45,30 +43,31 @@ namespace SharePointOnlineAdmin
             switch (command)
             {
                 case "ShowMembers":
-                    userLogonName = args[1];
-                    UserGroups.RunShowMembership(userLogonName);
+                    siteCollectionUrl = args[1];
+                    userLogonName = args[2];
+                    UserGroups.RunShowMembership(siteCollectionUrl, userLogonName);
                     break;
                 case "ECreate":
                     siteName = args[1];
                     libraryList = args[2];
-                    Extranet.RunCreateSiteAndLibraries(siteName, libraryList);
+                    RunExtranet.CreateSiteAndLibraries(siteName, libraryList);
                     break;
                 case "EAdd":
                     siteName = args[1];
                     libraryList = args[2];
-                    Extranet.RunAddLibrariesToSite(siteName, libraryList);
+                    RunExtranet.AddLibrariesToSite(siteName, libraryList);
                     break;
                 case "PAdd":
                     CSVFilePath = args[1];
-                    Partner.RunAddPartners(CSVFilePath);
+                    RunPartner.AddPartners(CSVFilePath);
                     break;
                 case "PDisplay":
                     CSVFilePath = args[1];
-                    Partner.RunDisplayPartners(CSVFilePath);
+                    RunPartner.DisplayPartners(CSVFilePath);
                     break;
                 case "PRemove":
                     CSVFilePath = args[1];
-                    Partner.RunRemovePartners(CSVFilePath);
+                    RunPartner.RemovePartners(CSVFilePath);
                     break;
                 case "TestIt":
                     TestIt();

@@ -187,13 +187,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extranet.cs" />
-    <Compile Include="Partner.cs" />
+    <Compile Include="Extranet\RunExtranet.cs" />
+    <Compile Include="Extranet\ProvisionExtranet.cs" />
+    <Compile Include="Partner\RunPartner.cs" />
+    <Compile Include="Partner\ProvisionPartner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ListLibrary.cs" />
-    <Compile Include="UserGroups.cs" />
-    <Compile Include="WebPart.cs" />
+    <Compile Include="Extensions\ListLibrary.cs" />
+    <Compile Include="Extensions\UserGroups.cs" />
+    <Compile Include="Extensions\WebPart.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -201,6 +203,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
